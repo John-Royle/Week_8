@@ -1,5 +1,5 @@
 module.exports = function(app,db){
-  app.post('/api/auth', (req, res) => {
+  app.post('/server/auth', (req, res) => {
 
     const assert = require('assert');
 

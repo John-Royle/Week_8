@@ -12,34 +12,17 @@ require('./routes.js')(app, path);
 require('./socket.js')(app, io);
 require('./listen.js')(http);
 
-/*
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb://localhost:27017/mydb';
 MongoClient.connect(url, {poolSize:10, useNewUrlParser: true },function(err, client) {
   if(err) {return console.log("This is the error")}
   console.log("database running");
-  const dbName = 'users';
+  const dbName = 'mydb';
   const db = client.db(dbName);
   require('./auth.js')(app, db);
-  //require('/routes/register.js')(app, db);
-  require('./routes.js')(app, db);
-  //require('/routes/getchat.js')(app, db);
-  require('./socket.js')(app, io, db);
-  //require('./listen.js')(http);
+  require('./create.js')(app, db);
+  require('./add.js')(app, db);
+  require('./remove.js')(app, db);
+  require('./update.js')(app, db);
+  require('./read.js')(app, db);
 });
-*/
-/*
-const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost:27017';
-MongoClient.connect(url, {poolSize:10},function(err, client) {
-  if(err) {return console.log(err)}
-  console.log("database running");
-  const dbName = 'users';
-  const db = client.db(dbName);
-  require('/routes/auth.js')(app, db);
-  require('/routes/register.js')(app, db);
-  require('/routes/getchat.js')(app, db);
-  require('/socket.js')(app, io, db);
-  require('/listen.js')(http);
-});
-*/
